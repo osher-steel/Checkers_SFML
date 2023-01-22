@@ -12,7 +12,8 @@ CircleShape redPiece;
 CircleShape blackPiece;
 RectangleShape tile;
 RectangleShape selectedTile;
-Sprite queenImage;
+Texture kingTexture;
+Sprite kingImage;
 
 void createGraphics();
 
@@ -88,7 +89,7 @@ int main() {
                 }
 
                 if(game.board[i][j]==-2 || game.board[i][j]==2  ){
-                    queenImage.setPosition(i*constants::tileSize+ constants::tileSize*15/48,
+                    kingImage.setPosition(i*constants::tileSize+ constants::tileSize*15/48,
                                            j*constants::tileSize+constants::tileSize*15/48);
                     window.draw(queenImage);
                 }
@@ -113,12 +114,10 @@ void createGraphics(){
     selectedTile.setFillColor(Color(0,255,0));
     selectedTile.setSize(Vector2f(constants::tileSize,constants::tileSize));
 
+    kingTexture.loadFromFile("king.png");
 
-    Texture queenTexture;
-    queenTexture.loadFromFile("king.png");
-
-    queenImage.setTexture(queenTexture);
-    queenImage.setScale(constants::tileSize/125,constants::tileSize/125);
+    kingImage.setTexture(queenTexture);
+    kingImage.setScale(constants::tileSize/125,constants::tileSize/125);
 
     /* Texture gameOverTexture;
      gameOverTexture.loadFromFile("game_over.png");
